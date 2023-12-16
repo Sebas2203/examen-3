@@ -16,6 +16,7 @@ namespace encuesta
         {
             if (!IsPostBack)
             {
+                LlenarGrid();
                 Llenartipos();
             }
         }

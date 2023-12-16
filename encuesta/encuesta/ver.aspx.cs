@@ -14,7 +14,10 @@ namespace encuesta
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                LlenarGrid();
+            }
         }
 
         public void LlenarGrid()
