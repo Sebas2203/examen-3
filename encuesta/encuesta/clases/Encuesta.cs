@@ -21,10 +21,10 @@ namespace encuesta.clases
                 this.correo = correo;
             }
 
-            public encuesta() { }
+            //public encuesta() { }
 
 
-            public static int llenarEncuesta(string nombre, string correo)
+            public static int Agregar(string nombre, string correo)
             {
                 int retorno = 0;
 
@@ -53,4 +53,5 @@ namespace encuesta.clases
                 return retorno;
             }
         }
+    }
 }

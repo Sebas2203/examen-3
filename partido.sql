@@ -61,5 +61,3 @@ EXEC llenarPartidos 'PAC'
 
 SELECT*FROM partido
 
-
-
