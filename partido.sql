@@ -29,6 +29,8 @@ CREATE TABLE partido
 GO
 
 --llenado de tablas 
+
+
 CREATE PROCEDURE llenarEncuesta
 	@nombre VARCHAR(50),
 	@edad INT,
@@ -41,12 +43,23 @@ GO
 
 EXEC llenarEncuesta 'Sebastian', 20, 'sebas@uh.com'
 
+select*from encuesta
+
+
+ALTER PROCEDURE llenarPartidos
+	@idEncuesta INT,
+	@partidoPolitico VARCHAR(10)
+AS
+	BEGIN
+		INSERT INTO partido(idEncuesta, partidoPolitico) VALUES (@idEncuesta, @partidoPolitico)
+	END
+GO
+
+EXEC llenarPartidos 'PLN'
+EXEC llenarPartidos 'PUSC'
+EXEC llenarPartidos 'PAC'
+
+SELECT*FROM partido
 
 
 
-
-
-
-
-
---INNERJOINS
