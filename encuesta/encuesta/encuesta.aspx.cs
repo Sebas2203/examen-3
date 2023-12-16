@@ -58,5 +58,28 @@ namespace encuesta
             }
         }
 
+        public void LlenarGrid()
+        {
+            string constr = ConfigurationManager.ConnectionStrings["conexion"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = new SqlCommand("SELECT*FROM encuesta"))
+                {
+                    using (SqlDataAdapter sda = new SqlDataAdapter())
+                    {
+                        cmd.Connection = con;
+                        sda.SelectCommand = cmd;
+                        using (DataTable dt = new DataTable())
+                        {
+                            sda.Fill(dt);
+                            datagrid.DataSource = dt;
+                            datagrid.DataBind();  // actualizar el grid view
+                        }
+                    }
+                }
+            }
+        }
+
+
     }
 }

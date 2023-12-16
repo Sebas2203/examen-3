@@ -41,12 +41,7 @@ AS
 	END
 GO
 
-EXEC llenarEncuesta 'Sebastian', 20, 'sebas@uh.com'
-
-select*from encuesta
-
-
-ALTER PROCEDURE llenarPartidos
+CREATE PROCEDURE llenarPartidos
 	@idEncuesta INT,
 	@partidoPolitico VARCHAR(10)
 AS
@@ -54,6 +49,13 @@ AS
 		INSERT INTO partido(idEncuesta, partidoPolitico) VALUES (@idEncuesta, @partidoPolitico)
 	END
 GO
+
+
+
+EXEC llenarEncuesta 'Sebastian', 20, 'sebas@uh.com'
+
+select*from encuesta
+
 
 EXEC llenarPartidos 'PLN'
 EXEC llenarPartidos 'PUSC'

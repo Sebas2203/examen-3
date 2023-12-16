@@ -13,6 +13,7 @@ namespace encuesta.clases
             public int id { get; set; }
             public string nombre { get; set; }
             public string correo { get; set; }
+            public int edad { get; set; }
 
             public encuesta(int id, string nombre, string correo)
             {
@@ -24,7 +25,7 @@ namespace encuesta.clases
             //public encuesta() { }
 
 
-            public static int Agregar(string nombre, string correo)
+            public static int Agregar(string nombre, string correo, int edad)
             {
                 int retorno = 0;
 
@@ -39,6 +40,7 @@ namespace encuesta.clases
                         };
                         cmd.Parameters.Add(new SqlParameter("@nombre", nombre));
                         cmd.Parameters.Add(new SqlParameter("@correo", correo));
+                        cmd.Parameters.Add(new SqlParameter("@edad", edad));
 
                         retorno = cmd.ExecuteNonQuery();
                     }
